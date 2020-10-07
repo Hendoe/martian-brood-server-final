@@ -1,1 +1,0 @@
-DROP TABLE IF EXISTS constuction_buildings;
