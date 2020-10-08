@@ -11,6 +11,7 @@ const aliensRouter = require('./aliens/aliens-router');
 const structuresRouter = require('./structures/structures-router');
 const alienInventoryRouter = require('./alien-inventory/alien-inventory-router');
 const structureInventoryRouter = require('./structure-inventory/structure-inventory-router');
+const spawningPlansRouter = require('./spawning-plans/spawning-plans-router');
 
 
 const app = express();
@@ -29,6 +30,7 @@ app.use('/api/aliens', aliensRouter);
 app.use('/api/structures', structuresRouter);
 app.use('/api/alienInventory', alienInventoryRouter);
 app.use('/api/structureInventory', structureInventoryRouter);
+app.use('/api/spawningPlans', spawningPlansRouter);
 
 app.get('/', (req, res) => {
   res.send('MARTIAN BROOD SERVER')

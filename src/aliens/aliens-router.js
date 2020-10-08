@@ -8,6 +8,9 @@ const jsonParser = express.json()
 
 const serializeAlien = alien => ({
   id: alien.id,
+  buildable: alien.buildable,
+  building: alien.building,
+  active: alien.active,
   alien_name: alien.alien_name,
   hp: alien.hp,
   atk: alien.atk,

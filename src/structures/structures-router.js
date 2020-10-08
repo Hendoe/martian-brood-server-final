@@ -8,6 +8,9 @@ const jsonParser = express.json()
 
 const serializeStructure = structure => ({
   id: structure.id,
+  buildable: structure.buildable,
+  building: structure.building,
+  active: structure.active,
   structure_name: structure.structure_name,
   hp: structure.hp,
   atk: structure.atk,

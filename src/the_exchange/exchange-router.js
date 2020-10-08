@@ -1,5 +1,5 @@
-const express = require('express')
-const ExchangeService = require('./exchange-service')
+const express = require('express');
+const ExchangeService = require('./exchange-service');
 
 const aliensRouter = require('../aliens/aliens-router');
 const structuresRouter = require('../structures/structures-router');
@@ -12,11 +12,15 @@ theExchange.get('/', (req, res) => {
   res.send('THE EXCHANGE')
 });
 
+//theExchange
 
-theExchange.get('/api/aliens', aliensRouter);
-theExchange.get('/api/structures', structuresRouter);
-theExchange.get('/api/alienInventory', alienInventoryRouter);
-theExchange.get('/api/structureInventory', structureInventoryRouter);
+theExchange.get('/api/aliens', aliensRouter)
 
+
+
+
+// theExchange.get('/api/structures', structuresRouter);
+// theExchange.get('/api/alienInventory', alienInventoryRouter);
+// theExchange.get('/api/structureInventory', structureInventoryRouter);
 
 module.exports = theExchange
