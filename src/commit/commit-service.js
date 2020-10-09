@@ -9,6 +9,11 @@ const CommitService = {
       .update(newAliens)
       .returning('*')
   },
+  updateAliens(knex, newStructures) {
+    return knex('structures')
+      .update(newStructures)
+      .returning('*')
+  },
 };
 
 module.exports = CommitService

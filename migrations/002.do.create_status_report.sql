@@ -6,5 +6,6 @@ CREATE TABLE status_report (
   spawning_cost INTEGER,
   structures INTEGER,
   biomass INTEGER,
-  synapse INTEGER
+  synapse_required INTEGER,
+  synapse_produced INTEGER
 );

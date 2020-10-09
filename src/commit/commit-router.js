@@ -22,11 +22,8 @@ const bodyParser = express.json()
 commitRouter
   .route('/status')
   .patch(bodyParser, (req, res, next) => {
-    const { brood_name, solar_day, aliens, spawning_cost, structures, biomass, synapse } = req.body
-    const newStatus = { brood_name, solar_day, aliens, spawning_cost, structures, biomass, synapse }
-    newStatus.solar_day += 1
-    newStatus.biomass = (newStatus.spawning_cost - biomass)
-    console.log(newStatus)
+    const { brood_name, solar_day, aliens, spawning_cost, structures, biomass, synapse_required, synapse_produced } = req.body
+    const newStatus = { brood_name, solar_day, aliens, spawning_cost, structures, biomass, synapse_required, synapse_produced }
 
     CommitService.updateStatus(
       req.app.get('db'),
@@ -41,14 +38,28 @@ commitRouter
 commitRouter
   .route('/aliens')
   .patch(bodyParser, (req, res, next) => {
-    const { alien_name, spawnable, spawning, active, to_spawn, spawning_count, brood_count, hp, atk, biomass_cost, synapse_required, description, special_features } = req.body
-    const newAliens = { alien_name, spawnable, spawning, active, to_spawn, spawning_count, brood_count, hp, atk, biomass_cost, synapse_required, description, special_features }
-    newAliens.brood_count = (newAliens.brood_count + newAliens.spawning_count)
-
+    const { id, alien_name, spawnable, to_spawn, spawning_count, brood_count, hp, atk, biomass_cost, synapse_required, description, special_features } = req.body
+    const newAliens = { id, alien_name, spawnable, to_spawn, spawning_count, brood_count, hp, atk, biomass_cost, synapse_required, description, special_features }
 
     CommitService.updateAliens(
       req.app.get('db'),
       newAliens
+    )
+      .then(numRowsAffected => {
+        res.status(204).end()
+      })
+      .catch(next)
+  })
+
+commitRouter
+  .route('/structures')
+  .patch(bodyParser, (req, res, next) => {
+    const { id, structure_name, constructable, to_construct, constructing_count, brood_count, hp, atk, biomass_cost, synapse_required, description, special_features } = req.body
+    const newAliens = { id, structure_name, constructable, to_construct, constructing_count, brood_count, hp, atk, biomass_cost, synapse_required, description, special_features }
+
+    CommitService.updateStructures(
+      req.app.get('db'),
+      newStructures
     )
       .then(numRowsAffected => {
         res.status(204).end()
