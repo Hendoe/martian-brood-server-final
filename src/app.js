@@ -5,13 +5,11 @@ const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 
-//const statusRouter = require('./status/status-router');
-const exchangeRouter = require('./the_exchange/exchange-router');
+const statusRouter = require('./status/status-router');
 const aliensRouter = require('./aliens/aliens-router');
 const structuresRouter = require('./structures/structures-router');
-const alienInventoryRouter = require('./alien-inventory/alien-inventory-router');
-const structureInventoryRouter = require('./structure-inventory/structure-inventory-router');
-const spawningPlansRouter = require('./spawning-plans/spawning-plans-router');
+const commitRouter = require('./commit/commit-router');
+const constructionOrderRouter = require('./construction-order/construction-order-router');
 
 
 const app = express();
@@ -24,13 +22,11 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
-//app.use('/api/status', statusRouter);
-app.use('/theExchange/', exchangeRouter);
+app.use('/api/status', statusRouter);
 app.use('/api/aliens', aliensRouter);
 app.use('/api/structures', structuresRouter);
-app.use('/api/alienInventory', alienInventoryRouter);
-app.use('/api/structureInventory', structureInventoryRouter);
-app.use('/api/spawningPlans', spawningPlansRouter);
+app.use('/api/commit', commitRouter);
+app.use('/api/constructionOrder', constructionOrderRouter);
 
 app.get('/', (req, res) => {
   res.send('MARTIAN BROOD SERVER')
