@@ -9,7 +9,7 @@ const CommitService = {
       .update(newAliens)
       .returning('*')
   },
-  updateAliens(knex, newStructures) {
+  updateStructures(knex, newStructures) {
     return knex('structures')
       .update(newStructures)
       .returning('*')

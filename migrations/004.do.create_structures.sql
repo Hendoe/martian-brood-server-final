@@ -2,7 +2,6 @@ CREATE TABLE structures (
   id INTEGER,
   structure_name TEXT NOT NULL,
   constructable BOOLEAN,
-  to_construct INTEGER,
   constructing_count INTEGER,
   brood_count INTEGER,
   hp INTEGER NOT NULL,

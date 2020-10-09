@@ -13,7 +13,8 @@ const serializeStatus = report => ({
   aliens: report.aliens,
   structures: report.structures,
   biomass: report.biomass,
-  synapse: report.synapse  
+  synapse_required: report.synapse_required,
+  synapse_produced: report.synapse_produced
 })
 
 statusRouter

@@ -2,7 +2,6 @@ CREATE TABLE aliens (
   id INTEGER,
   alien_name TEXT NOT NULL,
   spawnable BOOLEAN,
-  to_spawn INTEGER,
   spawning_count INTEGER,
   brood_count INTEGER,
   hp INTEGER NOT NULL,
