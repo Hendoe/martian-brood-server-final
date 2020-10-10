@@ -39,14 +39,24 @@ commitRouter
   })
 
 commitRouter
-  .route('/structures')
+  .route('/:structure_id')
   .patch(bodyParser, (req, res, next) => {
-    const { id, structure_name, constructable, to_construct, constructing_count, brood_count, hp, atk, biomass_cost, synapse_required, description, special_features } = req.body
-    const newStructures = { id, structure_name, constructable, to_construct, constructing_count, brood_count, hp, atk, biomass_cost, synapse_required, description, special_features }
+    const { brood_count } = req.body
+    const newStructureBroodCounts = { brood_count }
+
+    const numberOfValues = Object.values(newStructureBroodCounts).filter(Boolean).length
+    console.log(req.body)
+    if (numberOfValues === 0) {
+      return res.status(400).json({
+        error: {
+          message: `Request body must contain 'brood_count'!`
+        }
+      })
+    }
 
     CommitService.updateStructures(
       req.app.get('db'),
-      newStructures
+      newStructureBroodCounts
     )
       .then(numRowsAffected => {
         res.status(204).end()

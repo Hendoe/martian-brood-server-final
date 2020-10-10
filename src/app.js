@@ -9,7 +9,6 @@ const statusRouter = require('./status/status-router');
 const aliensRouter = require('./aliens/aliens-router');
 const structuresRouter = require('./structures/structures-router');
 const commitRouter = require('./commit/commit-router');
-const constructionOrderRouter = require('./construction-order/construction-order-router');
 
 
 const app = express();
@@ -26,7 +25,6 @@ app.use('/api/status', statusRouter);
 app.use('/api/aliens', aliensRouter);
 app.use('/api/structures', structuresRouter);
 app.use('/api/commit', commitRouter);
-app.use('/api/constructionOrder', constructionOrderRouter);
 
 app.get('/', (req, res) => {
   res.send('MARTIAN BROOD SERVER')
