@@ -3,7 +3,6 @@ CREATE TABLE status_report (
   brood_name TEXT NOT NULL,
   solar_day INTEGER,
   aliens INTEGER,
-  spawning_cost INTEGER,
   structures INTEGER,
   biomass INTEGER,
   synapse_required INTEGER,
