@@ -29,7 +29,12 @@ aliensRouter
     const knexInstance = req.app.get('db')
     AliensService.getAllAliens(knexInstance)
       .then(aliens => {
-        res.json(aliens.map(serializeAlien))
+        console.log('ALIENS ROUTER', aliens)
+        if (aliens.length === 0) {
+          res.json([])
+        } else {
+          res.json(aliens.map(serializeAlien))
+        }
       })
       .catch(next)
   })

@@ -10,11 +10,6 @@ const CommitService = {
       .update(newAlienInventory)
       .returning('*')
   },
-  updateStructureInventory(knex, newStructureInventory) {
-    return knex('structure_inventory')
-      .update(newStructureInventory)
-      .returning('*')
-  },
 };
 
 module.exports = CommitService

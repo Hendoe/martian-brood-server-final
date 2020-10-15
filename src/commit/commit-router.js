@@ -36,21 +36,5 @@ commitRouter
       })
       .catch(next)
   })
-commitRouter
-  .route('/structureInventory')
-  .patch(bodyParser, (req, res, next) => {
-    console.log(req.json())
-    const { id, structure_name, constructing_count, brood_count, constructable } = req.body
-    const newStructureInventory = { id, structure_name, constructing_count, brood_count, constructable }
-
-    CommitService.updateStructureInventory(
-      req.app.get('db'),
-      newStructureInventory
-    )
-      .then(numRowsAffected => {
-        res.status(204).end()
-      })
-      .catch(next)
-  })
 
   module.exports = commitRouter
