@@ -7,7 +7,9 @@ const { NODE_ENV } = require('./config');
 
 const statusRouter = require('./status/status-router');
 const aliensRouter = require('./aliens/aliens-router');
+const alienInventoryRouter = require('./inventories/alien-inventory-router');
 const structuresRouter = require('./structures/structures-router');
+const structureInventoryRouter = require('./inventories/structure-inventory-router');
 const commitRouter = require('./commit/commit-router');
 
 
@@ -23,7 +25,9 @@ app.use(cors());
 
 app.use('/api/status', statusRouter);
 app.use('/api/aliens', aliensRouter);
+app.use('/api/alienInventory', alienInventoryRouter);
 app.use('/api/structures', structuresRouter);
+app.use('/api/structureInventory', structureInventoryRouter);
 app.use('/api/commit', commitRouter);
 
 app.get('/', (req, res) => {

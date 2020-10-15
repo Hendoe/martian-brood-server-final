@@ -4,14 +4,15 @@ const CommitService = {
       .update(newStatus)
       .returning('*')
   },
-  updateAliens(knex, newAliens) {
-    return knex('aliens')
-      .update(newAliens)
+  updateAlienInventory(knex, id, newAlienInventory) {
+    return knex('alien_inventory')
+      .where({ id })
+      .update(newAlienInventory)
       .returning('*')
   },
-  updateStructures(knex, newStructures) {
-    return knex('structures')
-      .update(newStructures)
+  updateStructureInventory(knex, newStructureInventory) {
+    return knex('structure_inventory')
+      .update(newStructureInventory)
       .returning('*')
   },
 };

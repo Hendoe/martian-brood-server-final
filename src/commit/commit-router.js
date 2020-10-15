@@ -21,42 +21,31 @@ commitRouter
       })
       .catch(next)
   })
-
 commitRouter
-  .route('/aliens')
+  .route('/alienInventory')
   .patch(bodyParser, (req, res, next) => {
-    const { id, alien_name, spawnable, to_spawn, spawning_count, brood_count, hp, atk, biomass_cost, synapse_required, description, special_features } = req.body
-    const newAliens = { id, alien_name, spawnable, to_spawn, spawning_count, brood_count, hp, atk, biomass_cost, synapse_required, description, special_features }
+    const { id, alien_name, spawning_count, brood_count, spawnable } = req.body
+    const newAlienInventory = { id, alien_name, spawning_count, brood_count, spawnable }
 
-    CommitService.updateAliens(
+    CommitService.updateAlienInventory(
       req.app.get('db'),
-      newAliens
+      newAlienInventory
     )
       .then(numRowsAffected => {
         res.status(204).end()
       })
       .catch(next)
   })
-
 commitRouter
-  .route('/:structure_id')
+  .route('/structureInventory')
   .patch(bodyParser, (req, res, next) => {
-    const { brood_count } = req.body
-    const newStructureBroodCounts = { brood_count }
+    console.log(req.json())
+    const { id, structure_name, constructing_count, brood_count, constructable } = req.body
+    const newStructureInventory = { id, structure_name, constructing_count, brood_count, constructable }
 
-    const numberOfValues = Object.values(newStructureBroodCounts).filter(Boolean).length
-    console.log(req.body)
-    if (numberOfValues === 0) {
-      return res.status(400).json({
-        error: {
-          message: `Request body must contain 'brood_count'!`
-        }
-      })
-    }
-
-    CommitService.updateStructures(
+    CommitService.updateStructureInventory(
       req.app.get('db'),
-      newStructureBroodCounts
+      newStructureInventory
     )
       .then(numRowsAffected => {
         res.status(204).end()
