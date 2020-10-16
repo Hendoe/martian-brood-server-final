@@ -5,6 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 
+const userRouter = require('./users/user-router');
 const statusRouter = require('./status/status-router');
 const aliensRouter = require('./aliens/aliens-router');
 const alienInventoryRouter = require('./inventories/alien-inventory-router');
@@ -23,6 +24,7 @@ app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
 
+app.use('/api/users', userRouter);
 app.use('/api/status', statusRouter);
 app.use('/api/aliens', aliensRouter);
 app.use('/api/alienInventory', alienInventoryRouter);

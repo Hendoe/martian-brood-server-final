@@ -9,7 +9,7 @@ const bodyParser = express.json()
 const serializeAlienInventory = alien => ({
   id: alien.id,
   alien_name: alien.alien_name,
-  constructing_count: alien.constructing_count,
+  spawning_count: alien.spawning_count,
   brood_count: alien.brood_count,
   spawnable: alien.spawnable
 })
