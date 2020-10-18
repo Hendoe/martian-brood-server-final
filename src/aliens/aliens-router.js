@@ -8,13 +8,8 @@ const jsonParser = express.json()
 
 const serializeAlien = alien => ({
   id: alien.id,
-  alien_name: alien.alien_name,
   spawnable: alien.spawnable,
-  spawning: alien.spawning,
-  active: alien.active,
-  to_spawn: alien.to_spawn,
-  spawning_count: alien.spawning_count,
-  brood_count: alien.brood_count,
+  alien_name: alien.alien_name,
   hp: alien.hp,
   atk: alien.atk,
   biomass_cost: alien.biomass_cost,

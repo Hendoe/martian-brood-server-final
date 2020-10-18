@@ -1,3 +1,4 @@
-INSERT INTO alien_inventory ( alien_name, spawning_count, brood_count, spawnable )
+INSERT INTO alien_inventory ( alien_name, spawning_count, brood_count )
 VALUES
-  ('Worker Drone', 0, 1, true)
+  ('Brood Master', 0, 1),
+  ('Worker Drone', 0, 1)

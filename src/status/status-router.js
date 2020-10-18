@@ -10,8 +10,6 @@ const serializeStatus = report => ({
   id: report.id,
   brood_name: report.brood_name,
   solar_day: report.solar_day,
-  aliens: report.aliens,
-  structures: report.structures,
   biomass: report.biomass,
   synapse_required: report.synapse_required,
   synapse_produced: report.synapse_produced

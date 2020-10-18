@@ -10,8 +10,7 @@ const serializeStructureInventory = structure => ({
   id: structure.id,
   structure_name: structure.structure_name,
   constructing_count: structure.constructing_count,
-  brood_count: structure.brood_count,
-  constructable: structure.constructable
+  brood_count: structure.brood_count
 })
 
 structureInventoryRouter
@@ -48,8 +47,8 @@ structureInventoryRouter
   })
 
   .patch(bodyParser, (req, res, next) => {
-    const { structure_name, constructing_count, brood_count, constructable } = req.body
-    const newStructureInventory = { structure_name, constructing_count, brood_count, constructable }
+    const { structure_name, constructing_count, brood_count } = req.body
+    const newStructureInventory = { structure_name, constructing_count, brood_count }
 
     StructureInventoryService.updateStructureInventory(
       req.app.get('db'),

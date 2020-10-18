@@ -1,3 +1,3 @@
-INSERT INTO status_report ( brood_name, solar_day, aliens, structures, biomass, synapse_required, synapse_produced )
+INSERT INTO status ( brood_name, solar_day, biomass, synapse_required, synapse_produced )
 VALUES
-  ('Bartoks', 1, 1, 2, 100, 0, 5)
+  ('Bartoks', 1, 0, 0, 0)
