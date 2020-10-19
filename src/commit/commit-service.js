@@ -1,6 +1,6 @@
 const CommitService = {
   updateStatus(knex, newStatus) {
-    return knex('status_report')
+    return knex('status')
       .update(newStatus)
       .returning('*')
   },
