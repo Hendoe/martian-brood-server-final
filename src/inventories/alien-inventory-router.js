@@ -10,8 +10,7 @@ const serializeAlienInventory = alien => ({
   id: alien.id,
   alien_name: alien.alien_name,
   spawning_count: alien.spawning_count,
-  brood_count: alien.brood_count,
-  spawnable: alien.spawnable
+  brood_count: alien.brood_count
 })
 
 alienInventoryRouter
@@ -48,8 +47,8 @@ alienInventoryRouter
   })
 
   .patch(bodyParser, (req, res, next) => {
-    const { alien_name, spawning_count, brood_count, spawnable } = req.body
-    const newAlienInventory = { alien_name, spawning_count, brood_count, spawnable }
+    const { alien_name, spawning_count, brood_count } = req.body
+    const newAlienInventory = { alien_name, spawning_count, brood_count }
 
     AlienInventoryService.updateAlienInventory(
       req.app.get('db'),

@@ -1,4 +1,4 @@
-INSERT INTO structure_inventory ( structure_name, constructing_count, brood_count, constructable )
+INSERT INTO structure_inventory ( structure_name, constructing_count, brood_count )
 VALUES
-  ('Spawning Pit', 0, 1, true),
-  ('Synapse Clusters', 0, 1, true)
+  ('Spawning Pit', 0, 0),
+  ('Synapse Clusters', 0, 0)
