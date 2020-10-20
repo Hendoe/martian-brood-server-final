@@ -1,6 +1,5 @@
 const path = require('path')
 const express = require('express')
-const xss = require('xss')
 const AlienInventoryService = require('./alien-inventory-service')
 
 const alienInventoryRouter = express.Router()

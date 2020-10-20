@@ -1,6 +1,5 @@
 const path = require('path')
 const express = require('express')
-const xss = require('xss')
 const StructureInventoryService = require('./structure-inventory-service')
 
 const structureInventoryRouter = express.Router()

@@ -1,6 +1,5 @@
 const path = require('path')
 const express = require('express')
-const xss = require('xss')
 const StructuresService = require('./structures-service')
 
 const structuresRouter = express.Router()

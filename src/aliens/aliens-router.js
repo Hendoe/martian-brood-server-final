@@ -1,6 +1,5 @@
 const path = require('path')
 const express = require('express')
-const xss = require('xss')
 const AliensService = require('./aliens-service')
 
 const aliensRouter = express.Router()

@@ -1,6 +1,5 @@
 const path = require('path')
 const express = require('express')
-const xss = require('xss')
 const StatusService = require('./status-service')
 
 const statusRouter = express.Router()
